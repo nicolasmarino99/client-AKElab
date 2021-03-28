@@ -17,19 +17,41 @@ const Home = () => {
             payload: query,
         });
     };
-    const handleFilterBtn = (category) => {
-        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    const handleFilterBtn = category => {
+        dispatch({
+            type: 'FILTER_MOVIES_CATEGORIES',
+            payload: category,
+        });
     };
-    const handleASCBtn = (category) => {
-        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    const handleASCBtn = () => {
+        dispatch({
+            type: 'SORT_MOVIES_ASC',
+        });
     };
-    const handleDESBtn = (category) => {
-        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    const handleDESBtn = () => {
+        dispatch({
+            type: 'SORT_MOVIES_DES',
+        });
+    };
+    const handle10_0Btn = () => {
+        dispatch({
+            type: 'SORT_10-0',
+        });
+    };
+    const handle0_10Btn = () => {
+        dispatch({
+            type: 'SORT_0-10',
+        });
     };
 
 
     useEffect(() => {
-        getMoviesInfo({ akelab: 123456789 }, 'SHOW_MOVIES', MoviesEndpoint, dispatch);
+        getMoviesInfo(
+            { akelab: 123456789 },
+            'SHOW_MOVIES',
+            MoviesEndpoint,
+            dispatch,
+        );
     }, []);
     return (
         <div>

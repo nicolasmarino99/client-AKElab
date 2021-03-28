@@ -18,7 +18,7 @@ const reducer = (state=initialState, action) => {
 
     case 'SEARCH_MOVIE':
         state.movies.results = state.movies.results.filter(
-            name => name["original_title"] === action.payload,
+            name => name.original_title === action.payload,
         )
         return {
             movies: state
