@@ -7,18 +7,20 @@ import { MoviesContext } from '../contextProviders/MoviesProvider';
 const Home = () => {
     const [state, dispatch] = useContext(MoviesContext);
 
-    const MoviesEndpoint = `http://localhost:5000/movies`;
+    const MoviesEndpoint = 'http://localhost:5000/movies';
 
     const getMoviesInfo = postElement
 
     useEffect(() => {
+        console.log('HFDFH')
         getMoviesInfo(
             { akelab: 123456789 },
             'SHOW_MOVIES',
             MoviesEndpoint,
             dispatch,
-        );
+        )();
     }, [0]);
+    console.log(state)
     return (
         <div>
             <FilterNav genres={state.movies.genres}/>

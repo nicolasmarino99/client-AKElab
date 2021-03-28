@@ -1,7 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
-import Search from '../assets/imgs/Search.png'
-import Filter from '../assets/imgs/Filter.png'
-import Arrow from '../assets/imgs/Arrow.png'
+import Search from '../../assets/imgs/Search.png'
+import Filter from '../../assets/imgs/Filter.png'
+import Arrow from '../../assets/imgs/Arrow.png'
 import { motion } from "framer-motion";
 import { dropdownAnimate } from '../../animations/FilterNav';
 import CheckboxInput from './CheckboxInput/CheckboxInput';
@@ -44,7 +44,7 @@ const FilterNav = ({genres}) => {
             payload: query,
         });
     };
-    
+
     const handleFilterBtn = category => {
         dispatch({
             type: 'FILTER_MOVIES_CATEGORIES',

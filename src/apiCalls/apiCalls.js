@@ -5,8 +5,8 @@ const postElement = async (element, type, url, dispatch) => {
     const response = await axios.post(
       url,
       element,
-      { withCredentials: true },
     );
+    console.log(response)
     dispatch({
       type,
       payload: [response.data],

@@ -10,10 +10,12 @@ const initialState = {
 const reducer = (state=initialState, action) => {
   switch (action.type) {
     case 'SHOW_MOVIES':
-      let response = [...action.payload];
+        console.log(action.payload) 
+      let response = action.payload[0];
       response.results = response.results.map(movie => (new Date(movie.release_date)))
+      console.log(response)
       return {
-        movies: [...response],
+        movies: response,
       };
 
     case 'SEARCH_MOVIE':
