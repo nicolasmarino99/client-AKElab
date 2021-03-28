@@ -46,14 +46,13 @@ const reducer = (state, action) => {
 
 export const MoviesContext = createContext();
 
-const moviesProvider = ({ children }) => {
+const MoviesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <moviesContext.Provider value={[state, dispatch]}>
+    <MoviesContext.Provider value={[state, dispatch]}>
       {children}
-    </moviesContext.Provider>
+    </MoviesContext.Provider>
   );
 };
 
-export default moviesProvider;
-© 2021 GitHub, Inc.
+export default MoviesProvider;
