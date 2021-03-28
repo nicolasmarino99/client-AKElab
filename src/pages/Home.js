@@ -5,13 +5,28 @@ import FilterNav from '../components/FilterNav/FilterNav';
 import { MoviesContext } from '../contextProviders/MoviesProvider';
 
 const Home = () => {
-    const [query, setQuery] = useState('');
-    const handleSearchquery = e => setQuery(e.target.value)
     const [state, dispatch] = useContext(MoviesContext);
 
     const MoviesEndpoint = `http://localhost:5000/movies`;
 
     const getMoviesInfo = postElement
+
+    const handleSearchBtn = query => {
+        dispatch({
+            type: 'SEARCH_MOVIE',
+            payload: query,
+        });
+    };
+    const handleFilterBtn = (category) => {
+        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    };
+    const handleASCBtn = (category) => {
+        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    };
+    const handleDESBtn = (category) => {
+        getMoviesInfo('DEL_CATEGORY', categoriesUrl + category.id, dispatch, category.id);
+    };
+
 
     useEffect(() => {
         getMoviesInfo({ akelab: 123456789 }, 'SHOW_MOVIES', MoviesEndpoint, dispatch);

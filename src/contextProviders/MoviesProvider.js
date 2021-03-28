@@ -1,49 +1,52 @@
 import React, { createContext, useReducer } from 'react';
+import { includesCategories } from '../customLogic/includesCategories';
 
 const initialState = {
-  Movies: [],
+  movies: [],
 };
 
-const reducer = (state, action) => {
+
+
+const reducer = (state=initialState, action) => {
   switch (action.type) {
     case 'SHOW_MOVIES':
-      state.Movies = [];
-
-      let movies = [...state.movies, ...action.payload];
+      let response = [...action.payload];
+      response.results = response.results.map(movie => (new Date(movie.release_date)))
       return {
-        movies: [...movies],
+        movies: [...response],
       };
+
     case 'SEARCH_MOVIE':
+        state.movies.results = state.movies.results.filter(
+            name => name["original_title"] === action.payload,
+        )
         return {
-            movies: state.movies.filter(
-                name => name["original_title"] === action.payload,
-              ),
-          };
+            movies: state
+        };
     case 'FILTER_MOVIES_CATEGORIES':
+        state.movies.results = includesCategories(state.movies.results, action.payload)
       return {
-        movies: state.movies.filter(
-            category => category["genre_ids"] === action.payload,
-          ),
+        movies: state
       };
     case 'SORT_MOVIES_ASC':
+        state.movies.results = state.movies.results.sort((a,b) => a.release_date - b.release_date)
       return {
-        movies: state.movies.filter(
-          category => category.genre_ids !== action.payload,
-        ),
+        movies: state
       };
     case 'SORT_MOVIES_DES':
+        state.movies.results = state.movies.results.sort((a,b) => b.release_date - a.release_date)
         return {
-        movies: state.movies.filter(
-            category => category.genre_ids !== action.payload,
-        ),
+        movies: state
     };
     case 'SORT_0-10':
+        state.movies.results = state.movies.results.sort((a,b) => a.vote_average- b.vote_average)
       return {
-        movies: state.movies.state.movies.sort((a,b) => a- b)
+        movies: state
       };
       case 'SORT_10-0':
+        state.movies.results = state.movies.results.sort((a,b) => b.vote_average- a.vote_average)
       return {
-        movies: state.moviesstate.movies.sort((a,b) => a- b)
+        movies: state
       };
     default:
       throw new Error();
