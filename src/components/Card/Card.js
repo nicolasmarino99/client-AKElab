@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({title, img, description, rating, genre, date}) => (
+const Card = ({title, img, description, rating, genre, date, genres}) => (
 
     <div className="Card">
         <h1>{title}</h1>
@@ -11,7 +11,7 @@ const Card = ({title, img, description, rating, genre, date}) => (
                 <div>
                     <p>Titulo: {title}</p>
                     <p>Calificacion: {rating}</p>
-                    <p>Genero: {genre}</p>
+                    <p>Genero: {genre.map(category => <p>{genres.filter(x => x.id === category.id).name}</p>)}</p>
                     <p>Fecha de realizacion: {date}</p>
                 </div>
             </div>

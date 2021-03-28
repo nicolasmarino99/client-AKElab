@@ -13,6 +13,12 @@ const reducer = (state, action) => {
       return {
         movies: [...movies],
       };
+    case 'SEARCH_MOVIE':
+        return {
+            movies: state.movies.filter(
+                name => name["original_title"] === action.payload,
+              ),
+          };
     case 'FILTER_MOVIES_CATEGORIES':
       return {
         movies: state.movies.filter(
