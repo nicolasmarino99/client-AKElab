@@ -7,10 +7,12 @@ import { dropdownAnimate } from '../../animations/FilterNav';
 import CheckboxInput from './CheckboxInput/CheckboxInput';
 import { MoviesContext } from '../../contextProviders/MoviesProvider';
 
-const FilterNav = ({handleSubmit, genres}) => {
+const FilterNav = ({genres}) => {
     const [isHover, toggleHover] = useState(false)
+    const [query, setQuery] = useState('');
     const [state, dispatch] = useContext(MoviesContext);
     const inputRef = useRef()
+    const handleOnChange = e => setQuery(e.target.value);
     const toggleMenu = () => {
         inputRef.current.focus()
         toggleHover(!isHover)
@@ -35,11 +37,27 @@ const FilterNav = ({handleSubmit, genres}) => {
             type: 'SORT_0-10',
         });
     };
+
+    const handleSearchBtn = query => {
+        dispatch({
+            type: 'SEARCH_MOVIE',
+            payload: query,
+        });
+    };
+    
+    const handleFilterBtn = category => {
+        dispatch({
+            type: 'FILTER_MOVIES_CATEGORIES',
+            payload: category,
+        });
+    };
     return (
         <nav>
             <div className="search">
-                <input type="Text" />
-                <button><img src={Search} alt="title"/></button>
+                <input type="Text" placeholder="Busca una pelicula..." onChange={handleOnChange}/>
+                <button onClick={handleSearchBtn(query)}>
+                    <img src={Search} alt="title"/>
+                </button>
             </div>
             <motion.div
                 className="filter"

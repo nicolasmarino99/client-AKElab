@@ -11,40 +11,6 @@ const Home = () => {
 
     const getMoviesInfo = postElement
 
-    const handleSearchBtn = query => {
-        dispatch({
-            type: 'SEARCH_MOVIE',
-            payload: query,
-        });
-    };
-    const handleFilterBtn = category => {
-        dispatch({
-            type: 'FILTER_MOVIES_CATEGORIES',
-            payload: category,
-        });
-    };
-    const handleASCBtn = () => {
-        dispatch({
-            type: 'SORT_MOVIES_ASC',
-        });
-    };
-    const handleDESBtn = () => {
-        dispatch({
-            type: 'SORT_MOVIES_DES',
-        });
-    };
-    const handle10_0Btn = () => {
-        dispatch({
-            type: 'SORT_10-0',
-        });
-    };
-    const handle0_10Btn = () => {
-        dispatch({
-            type: 'SORT_0-10',
-        });
-    };
-
-
     useEffect(() => {
         getMoviesInfo(
             { akelab: 123456789 },
@@ -52,10 +18,10 @@ const Home = () => {
             MoviesEndpoint,
             dispatch,
         );
-    }, []);
+    }, [0]);
     return (
         <div>
-            <FilterNav handleSubmit={} genres={state.movies.genres}/>
+            <FilterNav genres={state.movies.genres}/>
             {state.movies.results.map(movie =>
                 <Card
                     title={movie.original_title}
