@@ -1,32 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
+import AnimatedIcon from '../animations/AnimatedIcon';
 import { postElement } from '../apiCalls/apiCalls';
 import Card from '../components/Card/Card';
 import FilterNav from '../components/FilterNav/FilterNav';
 import { MoviesContext } from '../contextProviders/MoviesProvider';
 
-const Home = ([]) => {
+const Home2 = ({loading}) => {
     const [state, dispatch] = useContext(MoviesContext);
 
-    const MoviesEndpoint = 'http://localhost:5000/movies';
-
-    const getMoviesInfo = postElement
-
-    useEffect(() => {
-        console.log('HFDFH')
-        getMoviesInfo(
-            { akelab: 123456789 },
-            'SHOW_MOVIES',
-            MoviesEndpoint,
-            dispatch,
-        )();
-    }, [0]);
-    console.log(state)
+    console.log(state, 'home2')
     return (
-        <div>
-            <FilterNav genres={state.movies.genres}/>
-            {state.movies.results.map(movie =>{
-                console.log(movie)
-            return (
+        <div className="Home2">
+            {!loading ? <FilterNav /> : <p></p>}
+            {!loading ? state.movies.results.map(movie =>
                 <Card
                     title={movie.original_title}
                     img={movie.poster_path}
@@ -34,11 +20,11 @@ const Home = ([]) => {
                     rating={movie.vote_average}
                     genre={movie.genre_ids}
                     date={movie.release_date}
-                    genres={state.movies.genres}
-                />)
-            )}}
+                />
+            ): <p></p>}
+            {loading && <AnimatedIcon />}
         </div>
     );
 }
 
-export default Home;
+export default Home2;

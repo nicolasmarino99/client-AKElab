@@ -7,7 +7,7 @@ import { dropdownAnimate } from '../../animations/FilterNav';
 import CheckboxInput from './CheckboxInput/CheckboxInput';
 import { MoviesContext } from '../../contextProviders/MoviesProvider';
 
-const FilterNav = ({genres}) => {
+const FilterNav = () => {
     const [isHover, toggleHover] = useState(false)
     const [query, setQuery] = useState('');
     const [state, dispatch] = useContext(MoviesContext);
@@ -77,7 +77,7 @@ const FilterNav = ({genres}) => {
                     <div className="sub-menu-background" />
                     <div className="sub-menu-container">
                         <h2>Genero</h2>
-                        {genres.map(item =><CheckboxInput name={item.name}/>)}
+                        {state.movies.genres.map(item =><CheckboxInput name={item.name}/>)}
                     </div>
                 </motion.div>
             </motion.div>

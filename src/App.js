@@ -1,19 +1,34 @@
-import { useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { postElement } from './apiCalls/apiCalls';
 import './App.css';
-import Home from './pages/Home';
+import { MoviesContext } from './contextProviders/MoviesProvider';
+import Home2 from './pages/Home2';
 
 function App() {
+  const [state, dispatch] = useContext(MoviesContext);
+  const [loading, setLoading] = useState(true);
+
+    const MoviesEndpoint = 'http://localhost:5000/movies';
+  const getMoviesInfo = postElement
+
   useEffect(() => {
-    console.log('asdf')
-  
-  }, [0])
+      console.log('I am home2')
+      getMoviesInfo(
+          { akelab: 123456789 },
+          'SHOW_MOVIES',
+          MoviesEndpoint,
+          dispatch,
+          setLoading,
+      )
+
+  }, [0]);
   return (
     <div className="App">
     <Router>
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home2 loading={loading}/>
           </Route>
         </Switch>
       </Router>
