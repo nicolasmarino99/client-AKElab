@@ -11,6 +11,7 @@ const Home2 = ({loading}) => {
     console.log(state, 'home2')
     return (
         <div className="Home2">
+            <h1 id="title">Películas</h1>
             {!loading ? <FilterNav /> : <p></p>}
             <div className="cards-container">
                 {!loading ? state.movies.results.map(movie =>

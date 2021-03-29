@@ -1,4 +1,4 @@
-const dropdownAnimate = {
+export const dropdownAnimate = {
     enter: {
       opacity: 1,
       rotateX: 0,
@@ -19,5 +19,3 @@ const dropdownAnimate = {
       }
     }
   };
-  
-  export { dropdownAnimate }
