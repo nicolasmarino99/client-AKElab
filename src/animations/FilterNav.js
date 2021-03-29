@@ -5,7 +5,9 @@ export const dropdownAnimate = {
       transition: {
         duration: 0.5
       },
-      display: "block"
+      display: "flex",
+
+
     },
     exit: {
       opacity: 0,

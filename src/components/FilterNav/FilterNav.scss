@@ -3,51 +3,17 @@ nav {
     height: 3em;
     align-items: center;
     padding: 0 3em;
-    .container {
-        margin-top: 50px;
-        max-width: 500px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
+   
       
-      .menu-item {
-        width: 200px;
-        perspective: 2000px;
-      }
-      
-      .sub-menu {
-        position: absolute;
-        top: 30px;
-        padding: 15px;
-        background-color: #ccc;
-        border-radius: 6px;
-      
-        transform-origin: 50% -30px;
-      }
-      
-      .sub-menu-background {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        transform-origin: 0 0;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-      
-      .sub-menu-container {
-      }
-      
-      .sub-menu-item {
-        margin-bottom: 5px;
-      }
     button {
         background: none;
         border: none;
         color: #6D6E70;
+        &:hover {
+            cursor: pointer;
+            background: #BCBCBC;
+
+        }
     }
     .search {
         border: 1px solid gray;
@@ -65,8 +31,34 @@ nav {
         display: flex;
         div {
             padding: .3em .5em;
-            border-right: 1px solid #C4C4C4;
-            border-left: 1px solid #C4C4C4;
+            
+            
+        }
+        .menu {
+            top: 6em;
+            left: -5%;
+            width: 23%;
+            position: relative;
+            flex-direction: column;
+            .sub-menu-container {
+                flex-direction: column;
+                background: #524848;
+                align-items: flex-start;
+                -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27); 
+                box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27);
+                border-radius: 10px;
+                
+                h2 {
+                    padding: 1em 0.5em 0 0.5em;
+                    font-size: 0.9em;
+                    color: white;
+                }
+                button {
+                    width: 100%;
+                    padding: 1em 2em;
+                    text-align: start;
+                }
+            }
         }
     }
     .Sort {
@@ -79,9 +71,40 @@ nav {
                 margin-right: .5em;
             }
             button {
+                z-index: 3;
+                &.hover {
+                    cursor: pointer;
+                    background: #BCBCBC;
+        
+                }
                 img {
                     transform: scale(0.8);
                     padding-top: 7px;
+                }
+            }
+            .menu {
+                top: 59%;
+                left: -40%;
+                width: 80%;
+                position: relative;
+                flex-direction: column;
+                .sub-menu-container {
+                    flex-direction: column;
+                    background: #EFEFEF;
+                    align-items: flex-start;
+                    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27); 
+                    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27);
+                    border-radius: 10px;
+                    
+                    h2 {
+                        padding: 1em 0.5em 0 0.5em;
+                        font-size: 0.9em;
+                    }
+                    button {
+                        width: 100%;
+                        padding: 1em 2em;
+                        text-align: start;
+                    }
                 }
             }
         }

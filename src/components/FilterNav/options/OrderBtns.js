@@ -38,7 +38,6 @@ const OrderBtns = () => {
                 className="Sort"
                 onHoverStart={toggleMenu1}
                 onHoverEnd={toggleMenu1}
-                
             >
                 <div>
                     <p>Ordenar</p>
@@ -49,7 +48,6 @@ const OrderBtns = () => {
                     animate={isHover ? "enter" : "exit"}
                     variants={dropdownAnimate}
                 >
-                    <div className="sub-menu-background" />
                     <div className="sub-menu-container">
                         <h2>Fecha</h2>
                         <button onClick={handleASCBtn}>Nuevas - Antiguas</button>

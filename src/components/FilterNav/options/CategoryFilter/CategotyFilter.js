@@ -36,7 +36,6 @@ const CategotyFilter = () => {
                 animate={isHover ? "enter" : "exit"}
                 variants={dropdownAnimate}
             >
-                <div className="sub-menu-background" />
                 <div className="sub-menu-container">
                     <h2>Genero</h2>
                     {state.movies.genres.map(item =><CheckboxInput name={item.name}/>)}
