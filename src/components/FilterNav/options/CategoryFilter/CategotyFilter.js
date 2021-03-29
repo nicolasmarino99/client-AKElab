@@ -21,6 +21,7 @@ const CategotyFilter = () => {
             payload: category,
         });
     };
+    console.log(state.movies.genres)
     return (
        <motion.div
             className="filter"

@@ -35,18 +35,19 @@ nav {
             
         }
         .menu {
-            top: 6em;
-            left: -5%;
-            width: 23%;
+            top: 10em;
+            left: -12%;
             position: relative;
             flex-direction: column;
             .sub-menu-container {
                 flex-direction: column;
-                background: #524848;
+                background: black;
                 align-items: flex-start;
                 -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27); 
                 box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27);
                 border-radius: 10px;
+                overflow-y: scroll;
+                max-height: 15em;
                 
                 h2 {
                     padding: 1em 0.5em 0 0.5em;
