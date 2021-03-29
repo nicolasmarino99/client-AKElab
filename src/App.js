@@ -9,11 +9,10 @@ function App() {
   const [state, dispatch] = useContext(MoviesContext);
   const [loading, setLoading] = useState(true);
 
-    const MoviesEndpoint = 'http://localhost:5000/movies';
+  const MoviesEndpoint = 'http://localhost:5000/movies';
   const getMoviesInfo = postElement
 
   useEffect(() => {
-      console.log('I am home2')
       getMoviesInfo(
           { akelab: 123456789 },
           'SHOW_MOVIES',
