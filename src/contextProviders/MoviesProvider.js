@@ -28,27 +28,27 @@ const reducer = (state=initialState, action) => {
     case 'FILTER_MOVIES_CATEGORIES':
         state.movies.results = includesCategories(state.movies.results, action.payload)
       return {
-        movies: state
+        movies: state.movies
       };
     case 'SORT_MOVIES_ASC':
         state.movies.results = state.movies.results.sort((a,b) => a.release_date - b.release_date)
       return {
-        movies: state
+        movies: state.movies
       };
     case 'SORT_MOVIES_DES':
         state.movies.results = state.movies.results.sort((a,b) => b.release_date - a.release_date)
         return {
-        movies: state
+        movies: state.movies
     };
     case 'SORT_0-10':
         state.movies.results = state.movies.results.sort((a,b) => a.vote_average- b.vote_average)
       return {
-        movies: state
+        movies: state.movies
       };
       case 'SORT_10-0':
         state.movies.results = state.movies.results.sort((a,b) => b.vote_average- a.vote_average)
       return {
-        movies: state
+        movies: state.movies
       };
     default:
       throw new Error();
