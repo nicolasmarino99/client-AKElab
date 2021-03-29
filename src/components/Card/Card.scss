@@ -1,0 +1,39 @@
+.Card {
+    display: flex;
+    border: 2px solid #4F4F4F;
+    border-radius: 16px;
+    width: 31%;
+    height: 53%;
+    flex-direction: column;
+    -webkit-box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.26); 
+    box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.26);
+    margin: 0.7em;
+    h1 {
+        text-align: start;
+        margin: 1em 1em 0.2em 1em;
+        font-size: 14px;
+    }
+    .content-container {
+        display: flex;
+        .image-container {
+            padding: 1em;
+        }
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .description {
+                font-size: 12px;
+                width: 95%;
+                text-align: initial;
+            }
+            .gnr-info {
+                font-size: 9px;
+                text-align: initial;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

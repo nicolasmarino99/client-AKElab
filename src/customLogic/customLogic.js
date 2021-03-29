@@ -13,3 +13,11 @@ export const includesCategories = (state, categories) => {
     }
     return filteredObjects
   }
+
+export const modifyDates = state => {
+  const r = state.results
+  for (let i = 0; i < r.length; i++ ) {
+    r[i].release_date = new Date(r[i].release_date)
+  }
+  return r
+}

@@ -1,0 +1,113 @@
+nav {
+    display: flex;
+    height: 3em;
+    align-items: center;
+    padding: 0 3em;
+   
+      
+    button {
+        background: none;
+        border: none;
+        color: #6D6E70;
+        &:hover {
+            cursor: pointer;
+            background: #BCBCBC;
+
+        }
+    }
+    .search {
+        border: 1px solid gray;
+        display: flex;
+        border-radius: 8px;
+        padding: 0.2em 0;
+        width: 24%;
+        justify-content: space-between;
+        margin-right: 0.3em;
+        input {
+            border: none;
+        }
+    }
+    .filter {
+        display: flex;
+        div {
+            padding: .3em .5em;
+            
+            
+        }
+        .menu {
+            top: 10em;
+            left: -12%;
+            position: relative;
+            flex-direction: column;
+            .sub-menu-container {
+                flex-direction: column;
+                background: black;
+                align-items: flex-start;
+                -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27); 
+                box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27);
+                border-radius: 10px;
+                overflow-y: scroll;
+                max-height: 15em;
+                
+                h2 {
+                    padding: 1em 0.5em 0 0.5em;
+                    font-size: 0.9em;
+                    color: white;
+                }
+                button {
+                    width: 100%;
+                    padding: 1em 2em;
+                    text-align: start;
+                }
+            }
+        }
+    }
+    .Sort {
+        display: flex;
+        div {
+            display: flex;
+            margin-left: 1em;
+            align-items: center;
+            p {
+                margin-right: .5em;
+            }
+            button {
+                z-index: 3;
+                &.hover {
+                    cursor: pointer;
+                    background: #BCBCBC;
+        
+                }
+                img {
+                    transform: scale(0.8);
+                    padding-top: 7px;
+                }
+            }
+            .menu {
+                top: 59%;
+                left: -40%;
+                width: 80%;
+                position: relative;
+                flex-direction: column;
+                .sub-menu-container {
+                    flex-direction: column;
+                    background: #EFEFEF;
+                    align-items: flex-start;
+                    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27); 
+                    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.27);
+                    border-radius: 10px;
+                    
+                    h2 {
+                        padding: 1em 0.5em 0 0.5em;
+                        font-size: 0.9em;
+                    }
+                    button {
+                        width: 100%;
+                        padding: 1em 2em;
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+}
