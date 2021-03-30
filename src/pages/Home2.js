@@ -8,13 +8,12 @@ import "./Home2.scss";
 const Home2 = ({loading}) => {
     const [state, dispatch] = useContext(MoviesContext);
 
-    console.log(state, 'home2')
     return (
         <div className="Home2">
             <h1 id="title">Películas</h1>
-            {!loading ? <FilterNav loading={loading}/> : <p></p>}
+            {!loading ? <FilterNav loading={loading}/> : ''}
             <div className="cards-container">
-                {!loading ? state.movies.results.map(movie =>
+                {!loading ? state.movies.results.map((movie,i) =>
                     <Card
                         title={movie.original_title}
                         img={movie.poster_path}
@@ -22,8 +21,9 @@ const Home2 = ({loading}) => {
                         rating={movie.vote_average}
                         genre={movie.genre_ids}
                         date={movie.release_date}
+                        key={i}
                     />
-                ): <p></p>}
+                ): ''}
                 {loading && <AnimatedIcon />}
             </div>
         </div>

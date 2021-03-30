@@ -15,8 +15,6 @@ const CategotyFilter = ({loading}) => {
         toggleHover(!isHover)
     }
 
-    
-    console.log(state.movies.genres)
     return (
        <motion.div
             className="filter"
@@ -34,7 +32,7 @@ const CategotyFilter = ({loading}) => {
             >
                 <div className="sub-menu-container">
                     <h2>Genero</h2>
-                    {state.movies.genres.map(item =><CheckboxInput loading={loading} name={item.name}/>)}
+                    {state.movies.genres.map((item, i) =><CheckboxInput key={i} loading={loading} name={item.name}/>)}
                 </div>
             </motion.div>
         </motion.div>
