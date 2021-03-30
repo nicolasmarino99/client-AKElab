@@ -5,10 +5,10 @@ import SearchMovieBtn from './options/SearchMovieBtn';
 import "./FilterNav.scss";
 
 
-const FilterNav = () => (
+const FilterNav = ({loading}) => (
     <nav>
         <SearchMovieBtn />
-        <CategotyFilter />
+        <CategotyFilter loading={loading}/>
         <OrderBtns />
     </nav>
 );

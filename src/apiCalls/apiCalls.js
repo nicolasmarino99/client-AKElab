@@ -8,7 +8,7 @@ const postElement = async (element, type, url, dispatch, setLoading) => {
       element,
     );
     console.log(response)
-    dispatch({
+    await dispatch({
       type,
       payload: [response.data],
     });
