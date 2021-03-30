@@ -11,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
 
-  const MoviesEndpoint = 'http://localhost:5000/movies';
+  const MoviesEndpoint = 'https://akelab-server-node.herokuapp.com/movies';
   const getMoviesInfo = postElement
 
   useEffect(() => {
