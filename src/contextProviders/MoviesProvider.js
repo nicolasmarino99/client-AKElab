@@ -21,11 +21,12 @@ const reducer = (state=initialState, action) => {
 
     case 'SEARCH_MOVIE':
       console.log(state, 'ftytf')
+      if (action.payload !== ''){
         state.movies.results = state.movies.results.filter(
             name => name.original_title === action.payload,
-        )
+        )}
         return {
-            movies: state
+            movies: state.movies
         };
     case 'FILTER_MOVIES_CATEGORIES':
         state.movies.results = includesCategories(state.movies.results, action.payload)

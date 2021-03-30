@@ -5,8 +5,6 @@ import Search from '../../../assets/imgs/Search.png'
 const SearchMovieBtn = () => {
     const [state, dispatch] = useContext(MoviesContext);
     const [query, setQuery] = useState('');
-    const handleOnChange = e => setQuery(e.target.value);
-
     const handleSearchBtn = query => {
         dispatch({
             type: 'SEARCH_MOVIE',
@@ -14,10 +12,16 @@ const SearchMovieBtn = () => {
         });
     };
 
+    const handleOnChange = e => {
+        setQuery(e.target.value);
+        handleSearchBtn(query)
+    }
+
+    
     return (
         <div className="search">
             <input type="Text" placeholder="Busca una pelicula..." onChange={handleOnChange}/>
-            <button>
+            <button onClick={handleOnChange}>
                 <img src={Search} alt="title"/>
             </button>
         </div>
