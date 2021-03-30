@@ -12,7 +12,7 @@ const Home2 = ({loading}) => {
     return (
         <div className="Home2">
             <h1 id="title">Películas</h1>
-            {!loading ? <FilterNav /> : <p></p>}
+            {!loading ? <FilterNav loading={loading}/> : <p></p>}
             <div className="cards-container">
                 {!loading ? state.movies.results.map(movie =>
                     <Card

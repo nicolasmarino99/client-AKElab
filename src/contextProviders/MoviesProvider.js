@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import { includesCategories, modifyDates } from '../customLogic/customLogic';
+import { includesCategories, modifyCategories, modifyDates } from '../customLogic/customLogic';
 
 const initialState = {
   movies: [],
@@ -13,17 +13,18 @@ const reducer = (state=initialState, action) => {
       let response = action.payload[0];
       const modifyResults = modifyDates(response)
       response.results = modifyResults
+      const modifyGenres = modifyCategories(response)
+      response.results = modifyGenres
       return {
         movies: response,
       };
 
     case 'SEARCH_MOVIE':
-      console.log(state, 'ftytf')
         state.movies.results = state.movies.results.filter(
             name => name.original_title === action.payload,
         )
         return {
-            movies: state
+            movies: state.movies
         };
     case 'FILTER_MOVIES_CATEGORIES':
         state.movies.results = includesCategories(state.movies.results, action.payload)

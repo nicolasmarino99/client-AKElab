@@ -6,7 +6,7 @@ import { dropdownAnimate } from '../../../../animations/FilterNav';
 import CheckboxInput from './CheckboxInput/CheckboxInput';
 
 
-const CategotyFilter = () => {
+const CategotyFilter = ({loading}) => {
     const [state, dispatch] = useContext(MoviesContext);
     const [isHover, toggleHover] = useState(false);
     //const inputRef = useRef()
@@ -15,12 +15,7 @@ const CategotyFilter = () => {
         toggleHover(!isHover)
     }
 
-    const handleFilterBtn = category => {
-        dispatch({
-            type: 'FILTER_MOVIES_CATEGORIES',
-            payload: category,
-        });
-    };
+    
     console.log(state.movies.genres)
     return (
        <motion.div
@@ -39,7 +34,7 @@ const CategotyFilter = () => {
             >
                 <div className="sub-menu-container">
                     <h2>Genero</h2>
-                    {state.movies.genres.map(item =><CheckboxInput name={item.name}/>)}
+                    {state.movies.genres.map(item =><CheckboxInput loading={loading} name={item.name}/>)}
                 </div>
             </motion.div>
         </motion.div>

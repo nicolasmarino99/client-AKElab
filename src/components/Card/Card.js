@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import { MoviesContext } from '../../contextProviders/MoviesProvider';
 import "./Card.scss";
 
 const Card = ({title, img, description, rating, genre, date}) => {
-    const [state, dispatch] = useContext(MoviesContext);
     return (
 
     <div className="Card">
@@ -15,10 +13,10 @@ const Card = ({title, img, description, rating, genre, date}) => {
             <div className="info-container">
                 <p className="description">{description}</p>
                 <div className="gnr-info">
-                    <p>Titulo: {title}</p>
-                    <p>Calificacion: {rating}</p>
-                    <p>Genero: {genre.map(category => <p>{state.movies.genres.filter(x => x.id === category.id).name}</p>)}</p>
-                    <p>Fecha de realizacion: {date.toDateString()}</p>
+                    <p><b>Titulo</b>: {title}</p>
+                    <p><b>Calificacion</b>: {rating}</p>
+                    <p><b>Genero</b>: {genre.map(category => <p>{category}, </p>)}</p>
+                    <p><b>Fecha de realizacion</b>: {date.toDateString()}</p>
                 </div>
             </div>
         </div>

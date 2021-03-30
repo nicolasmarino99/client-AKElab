@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MoviesProvider from './contextProviders/MoviesProvider';
+import CategoryProvider from './contextProviders/CategoryProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <MoviesProvider>
-      <App />
+      <CategoryProvider>
+        <App />
+      </CategoryProvider>
     </MoviesProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,6 +1,6 @@
 .Card {
     display: flex;
-    border: 2px solid #4F4F4F;
+    border: 1px solid #4F4F4F;
     border-radius: 16px;
     width: 31%;
     height: 53%;
@@ -28,10 +28,11 @@
                 text-align: initial;
             }
             .gnr-info {
-                font-size: 9px;
+                font-size: 12px;
                 text-align: initial;
                 p {
                     margin: 0;
+                    display: flex;
                 }
             }
         }
