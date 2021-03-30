@@ -21,3 +21,12 @@ export const modifyDates = state => {
   }
   return r
 }
+
+export const modifyCategories = state => {
+  const generes = state.genres
+  const r = state.results
+  for (let i = 0; i < r.length; i++ ) {
+    r[i].genre_ids = r[i].genre_ids.map(cate => generes.find(x => x.id === cate).name)
+  }
+  return r
+}

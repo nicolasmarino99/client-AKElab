@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import { includesCategories, modifyDates } from '../customLogic/customLogic';
+import { includesCategories, modifyCategories, modifyDates } from '../customLogic/customLogic';
 
 const initialState = {
   movies: [],
@@ -13,6 +13,8 @@ const reducer = (state=initialState, action) => {
       let response = action.payload[0];
       const modifyResults = modifyDates(response)
       response.results = modifyResults
+      const modifyGenres = modifyCategories(response)
+      response.results = modifyGenres
       return {
         movies: response,
       };
