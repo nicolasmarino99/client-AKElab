@@ -3,7 +3,7 @@ export const includesCategories = (state, categories) => {
     let filteredObjects = []
     for (let i = 0; i<state.length; i++) {
       let isMatching = true
-      let copy = [...state[i].id]
+      let copy = [...state[i].genre_ids]
       for (let j = 0; j<categories.length; j++) {
         isMatching &= copy.includes(categories[j])
         index = copy.indexOf(categories[j])
@@ -29,4 +29,10 @@ export const modifyCategories = state => {
     r[i].genre_ids = r[i].genre_ids.map(cate => generes.find(x => x.id === cate).name)
   }
   return r
+}
+
+export const deleteElement = (name, category) => {
+  const index = category.indexOf(name);
+  category.splice(index, 1);
+  return category
 }

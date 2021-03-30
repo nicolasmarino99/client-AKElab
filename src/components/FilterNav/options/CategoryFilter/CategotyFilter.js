@@ -15,12 +15,7 @@ const CategotyFilter = () => {
         toggleHover(!isHover)
     }
 
-    const handleFilterBtn = category => {
-        dispatch({
-            type: 'FILTER_MOVIES_CATEGORIES',
-            payload: category,
-        });
-    };
+    
     console.log(state.movies.genres)
     return (
        <motion.div
