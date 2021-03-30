@@ -36,3 +36,12 @@ export const deleteElement = (name, category) => {
   category.splice(index, 1);
   return category
 }
+
+export const ratingStars = (rate, star1, star2) => {
+  rate = Math.floor(rate/2)
+  const stars = new Array(rate).fill(star1)
+  for (let i = 0; i <= 5 - stars.length; i++) {
+    stars.push(star2)
+  }
+  return stars
+}

@@ -30,9 +30,12 @@
             .gnr-info {
                 font-size: 12px;
                 text-align: initial;
-                p {
+                p,div {
                     margin: 0;
                     display: flex;
+                }
+                .stars-container {
+                    width: 100%;
                 }
             }
         }
